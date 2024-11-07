@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using System.Diagnostics;
+using Microsoft.AspNetCore.Mvc;
 using BookStore.Models.Dto;
 using BookStore.Services;
 
@@ -6,7 +7,7 @@ namespace BookStore.Controllers;
 
 [ApiController]
 [Route("api/[controller]")]
-public class BooksController(IBooksService booksService)
+public class BooksController(IBooksService booksService) : ControllerBase
 {
     [HttpGet]
     public async Task<CustomResponseDto<IEnumerable<BookDto>>> GetBooks()
@@ -24,20 +25,31 @@ public class BooksController(IBooksService booksService)
     [HttpGet("{id:int}")]
     public async Task<CustomResponseDto<BookDto>> GetBook(int id)
     {
+        var res = await booksService.GetBook(id);
+        if (!string.IsNullOrWhiteSpace(res.Item2))
+        {
+            return new CustomResponseDto<BookDto>
+            {
+                Success = false,
+                Message = res.Item2,
+                Data = null
+            };
+        }
+
         return new CustomResponseDto<BookDto>
         {
             Success = true,
-            Message = "Books fetched successfully",
-            Data = await booksService.GetBook(id)
+            Message = "Book fetched successfully",
+            Data = res.Item1
         };
     }
 
     [HttpGet("search")]
     public async Task<CustomResponseDto<List<BookDto>>> Search
     ([FromQuery] string name,
-     [FromQuery] string publisher,
-     [FromQuery] string authorFirst,
-     [FromQuery] string authorLast)
+        [FromQuery] string publisher,
+        [FromQuery] string authorFirst,
+        [FromQuery] string authorLast)
     {
         return new CustomResponseDto<List<BookDto>>
         {

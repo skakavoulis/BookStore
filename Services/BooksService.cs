@@ -1,4 +1,5 @@
-﻿using BookStore.Data;
+﻿using System.Diagnostics;
+using BookStore.Data;
 using BookStore.Models;
 using BookStore.Models.Domain;
 using BookStore.Models.Dto;
@@ -9,17 +10,31 @@ namespace BookStore.Services;
 
 public class BooksService(BookStoreDbContext context) : IBooksService
 {
-    public async Task<BookDto> GetBook(int id)
+    public async Task<Tuple<BookDto?, string>> GetBook(int id)
     {
-        var book = await context.Books.Include(b => b.Author).SingleOrDefaultAsync(b => b.Id == id);
-        if (book == null)
-            return null;
-        return book.Convert();
+        try
+        {
+            var book = await context.Books
+                .Include(b => b.Author)
+                .SingleOrDefaultAsync(b => b.Id == id);
+            if (book == null)
+                return new Tuple<BookDto?, string>(null, "Book was not found");
+            return new Tuple<BookDto?, string>(book.Convert(), "");
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            return new Tuple<BookDto?, string>(null, "Something went wrong");
+        }
     }
 
     public async Task<List<BookDto>> GetAllBooks()
     {
-        return await context.Books.Include(a => a.Author).Select(b => b.Convert()).ToListAsync();
+        var query = context.Books
+            .Include(a => a.Author)
+            .Select(b => b.Convert());
+
+        return await query.ToListAsync();
     }
 
     public async Task<List<BookDto>> Search(
@@ -155,8 +170,7 @@ public class BooksService(BookStoreDbContext context) : IBooksService
         if (book is null)
             return false;
 
-        context.Remove(book);
-        await context.SaveChangesAsync();
-        return true;
+        context.Books.Remove(book);
+        return await context.SaveChangesAsync() == 1;
     }
 }

@@ -12,4 +12,22 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <_ContentIncludedByDefault Remove="BookStore.Mvc\appsettings.Development.json" />
+    <_ContentIncludedByDefault Remove="BookStore.Mvc\appsettings.json" />
+    <_ContentIncludedByDefault Remove="BookStore.Mvc\obj\BookStore.Mvc.csproj.nuget.dgspec.json" />
+    <_ContentIncludedByDefault Remove="BookStore.Mvc\obj\project.assets.json" />
+    <_ContentIncludedByDefault Remove="BookStore.Mvc\obj\project.packagespec.json" />
+    <_ContentIncludedByDefault Remove="BookStore.Mvc\Properties\launchSettings.json" />
+    <_ContentIncludedByDefault Remove="BookStore.Mvc\Areas\Identity\Pages\_ViewStart.cshtml" />
+    <_ContentIncludedByDefault Remove="BookStore.Mvc\Views\Home\Index.cshtml" />
+    <_ContentIncludedByDefault Remove="BookStore.Mvc\Views\Home\Privacy.cshtml" />
+    <_ContentIncludedByDefault Remove="BookStore.Mvc\Views\Shared\Error.cshtml" />
+    <_ContentIncludedByDefault Remove="BookStore.Mvc\Views\Shared\_Layout.cshtml" />
+    <_ContentIncludedByDefault Remove="BookStore.Mvc\Views\Shared\_LoginPartial.cshtml" />
+    <_ContentIncludedByDefault Remove="BookStore.Mvc\Views\Shared\_ValidationScriptsPartial.cshtml" />
+    <_ContentIncludedByDefault Remove="BookStore.Mvc\Views\_ViewImports.cshtml" />
+    <_ContentIncludedByDefault Remove="BookStore.Mvc\Views\_ViewStart.cshtml" />
+  </ItemGroup>
+
 </Project>

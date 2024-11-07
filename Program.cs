@@ -13,6 +13,9 @@ namespace BookStore
 
             // Add services to the container.
             builder.Services.AddScoped<IBooksService, BooksService>();
+            // builder.Services.AddSingleton<IBooksService, BooksService>(); // Singleton solution
+            // builder.Services.AddTransient<IBooksService, BooksService>(); // Instantiate every time
+
             builder.Services.AddScoped<IAuthorsService, AuthorsService>();
             builder.Services.AddScoped<IMembersService, MembersService>();
 
@@ -28,10 +31,7 @@ namespace BookStore
 
             builder.Services.AddCors(options =>
             {
-                options.AddDefaultPolicy(policy =>
-                {
-                    policy.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod();
-                });
+                options.AddDefaultPolicy(policy => { policy.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod(); });
             });
 
             var app = builder.Build();
@@ -53,12 +53,15 @@ namespace BookStore
 
             app.MapControllers();
 
-            // Ensure that the database is created
-            using (var scope = app.Services.CreateScope())
+            if (app.Environment.IsDevelopment())
             {
-                var services = scope.ServiceProvider;
-                var dbContext = services.GetRequiredService<Data.BookStoreDbContext>();
-                dbContext.Database.EnsureCreated();
+                // Ensure that the database is created
+                using (var scope = app.Services.CreateScope())
+                {
+                    var services = scope.ServiceProvider;
+                    var dbContext = services.GetRequiredService<Data.BookStoreDbContext>();
+                    dbContext.Database.EnsureCreated();
+                }
             }
 
             app.Run();

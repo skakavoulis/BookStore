@@ -4,7 +4,7 @@ namespace BookStore.Services;
 
 public interface IBooksService
 {
-    public Task<BookDto> GetBook(int id);
+    public Task<Tuple<BookDto?, string>> GetBook(int id);
     public Task<List<BookDto>> GetAllBooks();
     public Task<BookDto?> AddBook(BookDto dto);
 
