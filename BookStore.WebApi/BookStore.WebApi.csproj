@@ -1,0 +1,60 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <RootNamespace>BookStore</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.10" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="8.0.10" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <_ContentIncludedByDefault Remove="BookStore.Mvc\appsettings.Development.json" />
+    <_ContentIncludedByDefault Remove="BookStore.Mvc\appsettings.json" />
+    <_ContentIncludedByDefault Remove="BookStore.Mvc\obj\BookStore.Mvc.csproj.nuget.dgspec.json" />
+    <_ContentIncludedByDefault Remove="BookStore.Mvc\obj\project.assets.json" />
+    <_ContentIncludedByDefault Remove="BookStore.Mvc\obj\project.packagespec.json" />
+    <_ContentIncludedByDefault Remove="BookStore.Mvc\Properties\launchSettings.json" />
+    <_ContentIncludedByDefault Remove="BookStore.Mvc\Areas\Identity\Pages\_ViewStart.cshtml" />
+    <_ContentIncludedByDefault Remove="BookStore.Mvc\Views\Home\Index.cshtml" />
+    <_ContentIncludedByDefault Remove="BookStore.Mvc\Views\Home\Privacy.cshtml" />
+    <_ContentIncludedByDefault Remove="BookStore.Mvc\Views\Shared\Error.cshtml" />
+    <_ContentIncludedByDefault Remove="BookStore.Mvc\Views\Shared\_Layout.cshtml" />
+    <_ContentIncludedByDefault Remove="BookStore.Mvc\Views\Shared\_LoginPartial.cshtml" />
+    <_ContentIncludedByDefault Remove="BookStore.Mvc\Views\Shared\_ValidationScriptsPartial.cshtml" />
+    <_ContentIncludedByDefault Remove="BookStore.Mvc\Views\_ViewImports.cshtml" />
+    <_ContentIncludedByDefault Remove="BookStore.Mvc\Views\_ViewStart.cshtml" />
+    <_ContentIncludedByDefault Remove="MVC\appsettings.Development.json" />
+    <_ContentIncludedByDefault Remove="MVC\appsettings.json" />
+    <_ContentIncludedByDefault Remove="MVC\bin\Debug\net8.0\appsettings.Development.json" />
+    <_ContentIncludedByDefault Remove="MVC\bin\Debug\net8.0\appsettings.json" />
+    <_ContentIncludedByDefault Remove="MVC\bin\Debug\net8.0\MVC.deps.json" />
+    <_ContentIncludedByDefault Remove="MVC\bin\Debug\net8.0\MVC.runtimeconfig.json" />
+    <_ContentIncludedByDefault Remove="MVC\bin\Debug\net8.0\MVC.staticwebassets.runtime.json" />
+    <_ContentIncludedByDefault Remove="MVC\obj\Debug\net8.0\MVC.sourcelink.json" />
+    <_ContentIncludedByDefault Remove="MVC\obj\Debug\net8.0\staticwebassets.build.json" />
+    <_ContentIncludedByDefault Remove="MVC\obj\Debug\net8.0\staticwebassets.development.json" />
+    <_ContentIncludedByDefault Remove="MVC\obj\Debug\net8.0\staticwebassets.pack.json" />
+    <_ContentIncludedByDefault Remove="MVC\obj\MVC.csproj.nuget.dgspec.json" />
+    <_ContentIncludedByDefault Remove="MVC\obj\project.assets.json" />
+    <_ContentIncludedByDefault Remove="MVC\obj\project.packagespec.json" />
+    <_ContentIncludedByDefault Remove="MVC\Properties\launchSettings.json" />
+    <_ContentIncludedByDefault Remove="MVC\Properties\serviceDependencies.json" />
+    <_ContentIncludedByDefault Remove="MVC\Properties\serviceDependencies.local.json" />
+    <_ContentIncludedByDefault Remove="MVC\Areas\Identity\Pages\_ViewStart.cshtml" />
+    <_ContentIncludedByDefault Remove="MVC\Views\Home\Index.cshtml" />
+    <_ContentIncludedByDefault Remove="MVC\Views\Home\Privacy.cshtml" />
+    <_ContentIncludedByDefault Remove="MVC\Views\Shared\Error.cshtml" />
+    <_ContentIncludedByDefault Remove="MVC\Views\Shared\_Layout.cshtml" />
+    <_ContentIncludedByDefault Remove="MVC\Views\Shared\_LoginPartial.cshtml" />
+    <_ContentIncludedByDefault Remove="MVC\Views\Shared\_ValidationScriptsPartial.cshtml" />
+    <_ContentIncludedByDefault Remove="MVC\Views\_ViewImports.cshtml" />
+    <_ContentIncludedByDefault Remove="MVC\Views\_ViewStart.cshtml" />
+  </ItemGroup>
+
+</Project>
